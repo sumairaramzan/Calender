@@ -1,38 +1,63 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100vh; 
+  margin: 0;
 }
 
-.App-link {
-  color: #61dafb;
+
+.react-calendar__navigation__next2-button{
+  display: none !important;
+}
+.react-calendar__navigation__prev2-button{
+  display: none !important;
+}
+.react-calendar{
+  border: none !important;
+}
+.CalendarContainer {
+  border: 1px solid #ddd; 
+  padding: 10px; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+.react-calendar__tile--active{
+  background-color: red !important;
+  border-radius: 5px;
+}
+.react-calendar__navigation{
+  border: 1px solid #cacaca;
+  border-radius: 10px;
+
+}
+.react-calendar__navigation:hover{
+ background-color: transparent !important;
+}
+.react-calendar__navigation button:enabled:hover{
+  background-color: transparent !important;
+}
+.react-calendar__navigation__prev-button{
+  border-right: 1px solid #cacaca !important;
+}
+.react-calendar__navigation__next-button{
+  border-left: 1px solid #cacaca !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* new */
+
+.highlighted-date {
+  background: #e0e0e0; 
+  color: #333; 
+  border-radius: 50%; 
 }
+
+.react-calendar__navigation__arrow {
+  cursor: pointer;
+  font-size: 20px;
+}
+.react-calendar__tile--active {
+  background-color: red !important;
+  border-radius: 5px;
+}
+
