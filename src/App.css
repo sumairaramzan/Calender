@@ -1,63 +1,200 @@
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
+  background-color: #F5F6FA;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; 
-  margin: 0;
+  padding: 20px; /* Added padding for smaller screens */
 }
 
-
-.react-calendar__navigation__next2-button{
-  display: none !important;
-}
-.react-calendar__navigation__prev2-button{
-  display: none !important;
-}
-.react-calendar{
-  border: none !important;
-}
-.CalendarContainer {
-  border: 1px solid #ddd; 
-  padding: 10px; 
-  border-radius: 8px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-.react-calendar__tile--active{
-  background-color: red !important;
-  border-radius: 5px;
-}
-.react-calendar__navigation{
+.calender {
   border: 1px solid #cacaca;
+  padding: 26px 20px; /* Adjust padding for responsiveness */
+  background-color: #fff;
   border-radius: 10px;
-
-}
-.react-calendar__navigation:hover{
- background-color: transparent !important;
-}
-.react-calendar__navigation button:enabled:hover{
-  background-color: transparent !important;
-}
-.react-calendar__navigation__prev-button{
-  border-right: 1px solid #cacaca !important;
-}
-.react-calendar__navigation__next-button{
-  border-left: 1px solid #cacaca !important;
+  width: 100%; /* Set width to 100% for responsiveness */
+  max-width: 900px; /* Maximum width on larger screens */
 }
 
-/* new */
-
-.highlighted-date {
-  background: #e0e0e0; 
-  color: #333; 
-  border-radius: 50%; 
-}
-
-.react-calendar__navigation__arrow {
-  cursor: pointer;
-  font-size: 20px;
-}
-.react-calendar__tile--active {
-  background-color: red !important;
+.btn-prev, .btn-next {
+  background-color: transparent;
+  border: 1px solid #cacaca;
+  width: 40px;
+  height: 70px;
   border-radius: 5px;
+  background-color: #F5F6FA;
+}
+
+.date-display {
+  flex-grow: 1;
+  text-align: center;
+  margin: 0 10px;
+}
+
+
+/* Default grid for large screens */
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* Show 10 dates */
+  gap: 5px;
+}
+.btn-previous{
+  background-color: transparent;
+  border: none;
+  border-right: 1px solid #cacaca;
+  height: 50px;
+
+}
+.next-btn{
+  background-color: transparent;
+  border: none;
+  border-left: 1px solid #cacaca;
+  height: 50px;
+
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid #cacaca;
+  margin-bottom: 20px;
+  width: 60%;
+  margin: auto;
+}
+.time-container {
+  padding: 0 15px;
+}
+
+.timer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 10px; 
+  margin-top: 20px; 
+}
+
+.time-set {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  border-radius: 5px;
+  text-align: center;
+  display: flex; /* Flexbox to center content */
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  height: 40px; 
+}
+@media (max-width: 768px) {
+  .heading {
+    width: 100%; /* Full width for smaller screens */
+  }
+
+  .calender {
+    padding: 20px 10px; /* Reduced padding */
+  }
+
+  .btn-prev, .btn-next {
+    width: 30px; /* Smaller buttons for smaller screens */
+    height: 50px;
+  }
+
+  /* Adjust the date grid for smaller screens */
+  .date-display div {
+    grid-template-columns: repeat(5, 1fr); /* 5 columns instead of 10 */
+  }
+
+  .time-container {
+    padding: 0 10px; /* Adjust padding */
+  }
+
+  .timer {
+    grid-template-columns: repeat(2, 1fr); /* Reduce to 2 columns on small screens */
+    gap: 8px;
+  }
+
+  .time-set {
+    height: 30px; /* Smaller height for time sets */
+  }
+}
+
+/* For very small devices like phones in portrait mode */
+@media (max-width: 480px) {
+  .btn-prev, .btn-next {
+    width: 25px; /* Smaller buttons */
+    height: 40px;
+  }
+
+  .heading h3 {
+    font-size: 18px; /* Smaller font size */
+  }
+
+  .timer {
+    grid-template-columns: 1fr; /* Single column for time slots */
+    gap: 5px;
+  }
+}
+@media (max-width: 1024px) {
+  .date-grid {
+    grid-template-columns: repeat(8, 1fr); /* Show 5 dates */
+  }
+}
+
+
+@media (max-width: 768px) {
+  .date-grid {
+    grid-template-columns: repeat(5, 1fr); /* Show 5 dates */
+  }
+}
+
+/* For mobile screens */
+@media (max-width: 480px) {
+  .date-grid {
+    grid-template-columns: repeat(3, 1fr); /* Show 3 dates */
+  }
+}
+
+/* Adjust button size for smaller screens */
+.btn-prev, .btn-next {
+  width: 30px; /* Smaller button for smaller screens */
+  height: 60px;
+}
+/* Default for larger screens (show 10 dates) */
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* Show 10 dates by default */
+  gap: 5px;
+}
+
+/* For medium screens (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .date-grid {
+    grid-template-columns: repeat(8, 1fr); /* Show 8 dates */
+  }
+}
+
+/* For smaller screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .date-grid {
+    grid-template-columns: repeat(5, 1fr); /* Show 5 dates */
+  }
+}
+
+/* For small screens (max-width: 428px) */
+@media (max-width: 428px) {
+  .date-grid {
+    grid-template-columns: repeat(5, 1fr); /* Show 5 dates */
+  }
+}
+
+/* For extra small screens (max-width: 320px) */
+@media (max-width: 320px) {
+  .date-grid {
+    grid-template-columns: repeat(3, 1fr); /* Show 3 dates */
+  }
 }
 
